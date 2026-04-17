@@ -3,6 +3,7 @@
 <% @kittens.each do |k| %>
   <div>
     <h3><%= k.name %></h3>
+    <p><b><%= link_to "Edit", edit_kitten_path(k) %></b></p>
     <hr>
   </div>
 <% end %>
