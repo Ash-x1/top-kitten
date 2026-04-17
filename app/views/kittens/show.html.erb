@@ -4,3 +4,5 @@
 <p>Kitten age: <%= @kitten.age %></p>
 <p>Kitten cuteness scale: <%= @kitten.cuteness %></p>
 <p>Kitten softness scale: <%= @kitten.softness %></p>
+
+<%= link_to "Delete", kitten_path(@kitten), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
