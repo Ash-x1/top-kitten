@@ -1,0 +1,12 @@
+<%= form_with model: @kitten do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "e.g: peanut, chestnut..etc" %><br><br>
+  <%= f.label :age %>
+  <%= f.number_field :age, min: 0, max: 30, step:1 %><br><br>
+  <%= f.label :cuteness %>
+  <%= f.number_field :cuteness, min: 0, max: 10, step: 0.5 %><br><br>
+  <%= f.label :softness %>
+  <%= f.number_field :softness, min: 0, max:10, step: 0.5 %><br><br>
+
+  <%= f.submit %>
+<% end %>
