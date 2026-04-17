@@ -4,6 +4,8 @@
   <div>
     <h3><%= k.name %></h3>
     <p><b><%= link_to "Edit", edit_kitten_path(k) %></b></p>
+    <p><b><%= link_to "Show", kitten_path(k) %></b></p>
+    <p><b><%= link_to "New Kitten", new_kitten_path %></b></p>
     <hr>
   </div>
 <% end %>
