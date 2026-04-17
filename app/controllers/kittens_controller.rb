@@ -5,7 +5,7 @@ class KittensController < ApplicationController
   end
 
   def show
-    @kitten + Kitten.find(:id)
+    @kitten = Kitten.find(params[:id])
   end
 
   def new
@@ -13,7 +13,13 @@ class KittensController < ApplicationController
   end
 
   def create
-    @kitten = @KItten.create(params[:kitten])
+    @kitten = Kitten.new(kitten_params)
+
+    if @kitten.save
+      redirect_to @kitten, notice: "#{@kitten.name} was successfully created"
+    else 
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
