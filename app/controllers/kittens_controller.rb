@@ -16,8 +16,9 @@ class KittensController < ApplicationController
     @kitten = Kitten.new(kitten_params)
 
     if @kitten.save
-      redirect_to @kitten, notice: "#{@kitten.name} was successfully created"
+      redirect_to @kitten, flash: { notice: "#{@kitten.name} was successfully created" }
     else 
+      flash.now[:alert] = "😼 Really? Even a kitten form was too hard? Fix your inputs."
       render :new, status: :unprocessable_entity
     end
   end
@@ -30,8 +31,9 @@ class KittensController < ApplicationController
     @kitten = Kitten.find(params[:id])
 
     if @kitten.update(kitten_params)
-      redirect_to @kitten, notice: "Update successfully"
+      redirect_to @kitten, flash: { notice: "Update successfully" }
     else 
+      flash.now[:alert] = "🙃 That edit failed… maybe try using real numbers this time?"
       render :edit, status: :unprocessable_entity
     end
   end
@@ -40,7 +42,7 @@ class KittensController < ApplicationController
     @kitten = Kitten.find(params[:id])
 
     @kitten.destroy
-    redirect_to kittens_path, notice: "Delete successfully"
+    redirect_to kittens_path, flash: { notice: "Kitten deleted. You monster..." }
   end
 
   private
