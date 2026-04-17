@@ -1,7 +1,7 @@
 class KittensController < ApplicationController
 
   def index
-    @kittens = Kittens.all 
+    @kittens = Kitten.all 
   end
 
   def show
